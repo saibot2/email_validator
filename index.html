@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Dockerize Web App</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+    <link rel="stylesheet" href="assets/css/main.css">	
+	
+	<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+	
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+	
+	//alert("jquery funciona ");
+	
+	$.get("http://localhost:8080/prueba2",function(listaProductos){
+					
+		listaProductos.forEach(function(producto) {		
+			$("table").append(plantillaTabla(producto));
+		
+		})
+		
+	
+	})
+	
+})
+
+function plantillaTabla(producto) {
+	//ES6
+	var plantilla=
+		`<tr>
+	     <td>${producto.id}</td>
+	     <td>${producto.descripcion}</td>
+	     <td>${producto.cantidad}</td>		 
+		 <td>${producto.tachado}</td>
+		 <td>${producto.addProduct}</td>
+	  </tr>`
+	  return plantilla;
+}
+
+
+</script>
+<style>
+	table{
+	   border-style: dotted;
+	   border-width: 1px;
+	   border-color: 660033;
+	   background-color: cc3366;
+	   font-family: verdana, arial;
+	   font-size: 10pt;
+	}
+</style>	
+	
+</head>
+
+<body>
+Hola tios
+<table>
+
+</table>
+</body>
+</html>
+
+
+
